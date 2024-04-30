@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          
+          <div class="card-body">
+            <div class="head"><span>Signup here..</span></div>
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username">
+                <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error-message">Username is required</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="email">
+                <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">Please enter a valid email address</div>
+              </div>
+              <div class="mb-3">
+                <label for="mob" class="form-label">Mobile</label>
+                <input type="text" class="form-control" id="mob" formControlName="mob" placeholder="mobile number">
+                <div *ngIf="signupForm.get('mob')?.invalid && signupForm.get('mob')?.touched" class="error-message">Mobile number is required</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
+                <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">Password is required and must be at least 5 characters long</div>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

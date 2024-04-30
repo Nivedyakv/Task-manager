@@ -1,0 +1,63 @@
+
+  
+//   .task-card {
+//     width: calc(33.33% - 20px); /* Calculate width for each task card */
+//     height: 200px; /* Set a specific height for the task cards */
+//     border-radius: 8px;
+    
+//   }
+//   .task-card {
+   
+//     background-color: #FAD0C9;
+//     $lightColors: #e2d7ff, #e6c5ff, #c3ccff, #ebd8ff, #f3c9fa;
+  
+//     @for $i from 1 through length($lightColors) {
+//       &:nth-of-type(#{$i}) {
+//         background-color: nth($lightColors, $i);
+//       }
+//     }
+    
+//         button {
+//             margin-top: 10px;
+//           background-color: #6f00ff;
+//           color: white;
+//           border: none;
+//           border-radius: 4px;
+//           padding: 8px 16px;
+//           margin-left: 10px;
+//           cursor: pointer;
+//           transition: background-color 0.3s ease;
+         
+  
+//           &:hover {
+//             background-color: #bd77ff;
+//           }
+//         }
+    
+        
+      
+  
+    
+//     }
+ 
+//   ol, ul {
+//     padding-left: 2rem;
+//     display: flex;
+//     gap: 20px; /* Increase the gap between flex items */
+//     flex-wrap: wrap;
+//     list-style: none;
+//   }
+//   span{
+//     font-size: 20px;
+//     display: flex;
+//     flex-direction: column;
+//     padding-left: 20px;
+//   }
+  
+//   input[type="checkbox"] {
+//     width: 2em;
+//     height: 2rem;
+//     accent-color: rgb(3, 3, 3);
+   
+//   }
+  

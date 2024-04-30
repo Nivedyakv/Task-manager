@@ -1,0 +1,105 @@
+{
+  "tasks": [
+    {
+      "id": "1d2e",
+      "title": "first ",
+      "description": "do",
+      "dueDate": "2024-04-01",
+      "priority": "High",
+      "status": "completed",
+      "username": null
+    },
+    {
+      "id": "a150",
+      "title": "secondtask",
+      "description": "do",
+      "dueDate": "2024-05-01",
+      "priority": "Low",
+      "status": "completed",
+      "username": null
+    },
+    {
+      "id": "aecf",
+      "title": "buy grocerries",
+      "description": "cooking",
+      "dueDate": "2024-05-01",
+      "priority": "High",
+      "status": "Pending",
+      "username": null
+    }
+  ],
+  "users": [
+    {
+      "id": "11a0",
+      "username": "nivedya",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "123456"
+    },
+    {
+      "id": "c159",
+      "username": "Nivedya",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "123456"
+    },
+    {
+      "id": "bf76",
+      "username": "rohan",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "123456"
+    },
+    {
+      "id": "d0bb",
+      "username": "merlin",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "123456"
+    },
+    {
+      "id": "68c8",
+      "username": "Kumar",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "kumar"
+    },
+    {
+      "id": "d2b3",
+      "username": "John",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "12345"
+    },
+    {
+      "id": "eaec",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "a3f8",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "d92c",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "1979",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "1fe4",
+      "username": "rohan",
+      "password": "123456"
+    },
+    {
+      "id": "198a",
+      "username": "Nivedya",
+      "password": "12345"
+    }
+  ]
+}

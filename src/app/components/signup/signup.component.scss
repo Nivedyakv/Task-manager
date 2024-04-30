@@ -1,0 +1,28 @@
+.container {
+    margin-top: 50px; // Adjust margin top as needed
+   
+    
+  }
+  
+  .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Card effect
+    background-color: #ececec;
+    width: 500px;
+    margin: 0 auto; // This centers the card horizontally
+    
+  }
+  
+  
+  .btn-primary {
+    background-color:  #512da8; // Button color
+    
+  }
+  .error-message {
+    color: red; // Set error message color to red
+  }
+  .head {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #512da8; /* Title color */
+    text-align: center;
+}

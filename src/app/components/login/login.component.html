@@ -1,0 +1,31 @@
+<div class="login">
+    <div class="login-container">
+      <div class="head"><span>Task manager</span></div>
+      
+      <form (ngSubmit)="Login()" [formGroup]="form">
+        <h4>Login here</h4>
+        <!-- login credential -->
+        <div class="login-body">
+          <input type="text" name="username" id="username" formControlName="username" required placeholder="Username">
+          <div *ngIf="form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched)"
+            class="inv">Name required</div>
+          <div *ngIf="form.get('username')?.errors?.['username']" class="inv">Please enter a valid email address</div>
+        </div>
+        <div class="login-body">
+          <input type="password" name="password" formControlName="password" required placeholder="Password">
+          <div *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)"
+            class="inv">Password required</div>
+          <div *ngIf="form.get('password')?.errors?.['minlength']" class="inv">Password must be at least 5 characters</div>
+        </div>
+        <!-- Login  -->
+        <div class="login-button">
+          <button class="button" type="submit">Login</button>
+        </div>
+        <!-- signup -->
+        <div class="signup">Don't have an account? Create here <a href="javascript:void(0);" class="signup-link" (click)="Signup()">Sign up now</a></div>
+    
+    
+      </form>
+    </div>
+    </div>
+    
