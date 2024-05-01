@@ -20,39 +20,43 @@ export class DashboardComponent implements OnInit {
   selectedStatus: string = 'all'; // Default filter value
 
   constructor(private taskService: TaskmanagerService,private router: Router) { }
-  //constructor(private formBuilder: FormBuilder, private router: Router) {
-  ngOnInit(): void {
-    this.getTasks(); // Fetch tasks from the database when the component is initialized
-  }
   
+  ngOnInit(): void {
+    this.getTasks(); 
+  }
+  //
   getTasks() {
-    this.taskService.getTasks().subscribe(tasks => {
+    this.taskService.getTasks().subscribe((tasks) => {
       this.tasks = tasks;
-      this.filteredTasks = tasks; // Initialize filtered tasks with all tasks
-      this.filterTasks(); // Apply default filter
+      this.filteredTasks = tasks;
+      this.filterTasks(); 
     });
   }
-  
+  //
   filterTasks() {
     if (this.selectedStatus === 'all') {
-      this.filteredTasks = this.tasks; // Show all tasks
+      this.filteredTasks = this.tasks; 
     } else if (this.selectedStatus === 'pending') {
-      this.filteredTasks = this.tasks.filter(task => task.status !== 'completed');
+      this.filteredTasks = this.tasks.filter(task => task.status !== 'Completed');
     } else if (this.selectedStatus === 'overdue') {
       const currentDate = new Date();
       this.filteredTasks = this.tasks.filter(task => {
-        // Check if task due date is before current date
-        return task.status !== 'completed' && new Date(task.dueDate) < currentDate;
+       
+        return task.status !== 'Completed' && new Date(task.dueDate) < currentDate;
       });
-    } else {
+    }else if(this.selectedStatus ==='Completed'){
+      this.filteredTasks = this.tasks.filter(task => task.status === 'Completed');
+    }
+  
+     else {
       this.filteredTasks = this.tasks.filter(task => task.status === this.selectedStatus);
     }
   }
 
   toggleCompleted(task: Task) {
-    task.status = task.status === 'completed' ? 'pending' : 'completed';
+    task.status = task.status === 'Completed' ? 'pending' : 'Completed';
     this.taskService.updateTask(task).subscribe(updatedTask => {
-      // Update the task in the tasks array
+     
       const index = this.tasks.findIndex(t => t.id === updatedTask.id);
       if (index !== -1) {
         this.tasks[index] = updatedTask;
@@ -62,21 +66,21 @@ export class DashboardComponent implements OnInit {
   }
 
   markAsCompleted(task: any) {
-    if (task.status !== 'completed') {
-      task.status = 'completed';
-      console.log('Task marked as completed:', task);
-      // Assuming you want to update the task in the database, call the updateTask method here
+    if (task.status !== 'Completed') {
+      task.status = 'Completed';
+      console.log('Task marked as Completed:', task);
+     
       this.taskService.updateTask(task).subscribe(() => {
-        this.filterTasks(); // Reapply filtering after updating the task
+        this.filterTasks(); 
       });
     }
   }
 
   deleteTask(taskId: number) {
     this.taskService.deleteTask(taskId).subscribe(() => {
-      // Remove the task with the matching ID from the tasks array
+      
       this.tasks = this.tasks.filter(task => task.id !== taskId);
-      // Also update the filtered tasks to reflect the changes
+      
       this.filterTasks();
     });
   }

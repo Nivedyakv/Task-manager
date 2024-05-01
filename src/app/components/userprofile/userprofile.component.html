@@ -6,7 +6,6 @@
       </div>
       <input type="file" class="form-control mb-3" (change)="onFileSelected($event)">
       <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveChanges()">
-    
         <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" id="username" class="form-control" formControlName="username">

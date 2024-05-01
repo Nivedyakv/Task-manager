@@ -14,8 +14,11 @@ export class LogService {
 
   constructor(private http: HttpClient) { }
   
-  loginget(payload:any) {
-    return this.http.post('http://localhost:3000/users',payload);
+  // loginget(payload:any) {
+  //   return this.http.post('http://localhost:3000/users',payload);
+  // }
+  checkCredentials(username: string, password: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}?username=${username}&password=${password}`);
   }
   
   signup(formData: any) {

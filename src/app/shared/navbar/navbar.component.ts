@@ -9,16 +9,13 @@ import Swal from 'sweetalert2';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent {
   menuValue: boolean = false;
   menu_icon: string = 'bi bi-list';
   UserShow: boolean = false;
 
   constructor(private roueter:Router) { }
 
-  ngOnInit(): void {
-    this.checkUser();
-  }
 
   openMenu(): void {
     this.menuValue = !this.menuValue;
@@ -30,13 +27,9 @@ export class NavbarComponent implements OnInit{
     this.menu_icon = 'bi bi-list';
   }
 
-  checkUser(): void {
-    if (localStorage.getItem('token')) {
-      this.UserShow = true;
-    }
-  }
+
   logout(){
-    sessionStorage.clear();
+   
     Swal.fire({
       icon: 'success',
       title: 'Logged Out',

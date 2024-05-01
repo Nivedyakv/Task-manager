@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -44,5 +43,6 @@ export class AppComponent {
 
   
 }
+
 
 

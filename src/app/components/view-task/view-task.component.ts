@@ -1,10 +1,11 @@
 import { Component,OnInit } from '@angular/core';
 import { Task } from '../../interfaces/myinterface';
 import { TaskmanagerService } from '../../shared/Task/taskmanager.service';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-view-task',
   standalone: true,
@@ -13,72 +14,83 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './view-task.component.scss'
 })
 export class ViewTaskComponent implements OnInit{
-  task: Task | null = null;
+taskForm!: FormGroup;
+task: any; 
+editMode: boolean = false;
+taskId!: string;
+priorityOptions: string[] = ['Low', 'Medium', 'High'];
+statusOptions: string[] = ['Pending', 'Completed', 'Overdue'];
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private taskService: TaskmanagerService
-  ) { }
+constructor(private formBuilder: FormBuilder,private taskService: TaskmanagerService,  private router: Router, private route: ActivatedRoute ) {}
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const taskId = params['taskId'];
-      if (taskId) {
-        this.viewTaskDetails(taskId);
-      }
-    });
-  }
-
-  viewTaskDetails(taskId: string): void {
-    this.taskService.getT(taskId)
-      .subscribe(task => {
-        this.task = task;
-      }, error => {
-        console.error('Error fetching task details:', error);
-        // Handle error accordingly, e.g., show a toast message
+ngOnInit(): void {
+  this.taskForm = this.formBuilder.group({
+    title: [''],
+    description: [''],
+    dueDate: [''],
+    priority: [''],
+    status: ['']
+  });
+  this.route.queryParams.subscribe(params => {
+    const taskId = params['taskId'];
+    if (taskId) {
+      this.getTaskDetails(taskId);
+    }
+  });
+}
+//show the details on the field
+getTaskDetails(taskId: string): void {
+  this.taskService.getT(taskId).subscribe(
+    (task: any) => {
+      this.task = task;
+      this.taskForm.patchValue({
+        title: task.title,
+        description: task.description,
+        dueDate: task.dueDate,
+        priority: task.priority,
+        status: task.status
       });
+    });
+}
+  updateTaskView(): void {
+    this.editMode = !this.editMode;
   }
-
-  editTask(): void {
-    // Navigate to the edit task page, passing task ID as a query parameter
-    if (this.task) {
-      this.router.navigate(['/edit-task'], { queryParams: { taskId: this.task.id } });
-    }
-  }
-
-  deleteTask(): void {
-    if (this.task && confirm('Are you sure you want to delete this task?')) {
-      this.taskService.deleteTask(this.task.id)
-        .subscribe(() => {
-          // After successful deletion, navigate back to the dashboard or any other desired page
+  // Method to save task 
+  saveTask(): void {
+    if (this.taskForm.valid && this.task) { 
+      const updatedTaskData = this.taskForm.value; 
+      this.task = { ...this.task, ...updatedTaskData };
+      this.taskService.updateTask(this.task).subscribe(
+        () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Task Edited and saved successfully.'
+          });
+          this.editMode = false; // Exit edit mode
           this.router.navigate(['/dashboard']);
-        }, error => {
-          console.error('Error deleting task:', error);
-          // Handle error accordingly, e.g., show a toast message
-        });
+        } );
     }
   }
-
-  changeStatus(): void {
-    if (this.task) {
-      // Implement logic to change task status, either by calling a service method or handling it locally
-      // Example:
-      if (this.task.status === 'Pending') {
-        this.task.status = 'Completed';
-      } else {
-        this.task.status = 'Pending';
-      }
-
-      // Call service method to update task status
-      this.taskService.updateTask(this.task)
-        .subscribe(updatedTask => {
-          // Optionally, update the local task object with the updated task received from the service
-          this.task = updatedTask;
-        }, error => {
-          console.error('Error updating task:', error);
-          // Handle error accordingly, e.g., show a toast message
+  // Method to delete task
+  deleteTask(): void {
+    this.taskService.deleteTask(this.task.id).subscribe(
+      () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Task deleted successfully.'
+        }).then(() => {
+          this.router.navigate(['/dashboard']); 
         });
-    }
+      },
+      (error) => { 
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error deleting task.'
+        });
+      }
+    );
   }
 }

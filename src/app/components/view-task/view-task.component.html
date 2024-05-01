@@ -1,13 +1,33 @@
 <div *ngIf="task">
-    <h2>{{ task.title }}</h2>
-    <p>Description: {{ task.description }}</p>
-    <p>Due Date: {{ task.dueDate }}</p>
-    <p>Priority: {{ task.priority }}</p>
-    <p>Status: {{ task.status }}</p>
+    <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+      <h2>{{ task.title }}</h2>
+      <button type="button" (click)="updateTaskView()" *ngIf="!editMode">Edit</button>
+      <!-- Edit form -->
+      <div *ngIf="editMode">
+        <h3>Edit Task</h3>
+        <label>Title: </label>
+        <input type="text" formControlName="title"><br>
+        <label>Description: </label>
+        <input type="text" formControlName="description"><br>
+        <label>Due Date: </label>
+        <input type="text" formControlName="dueDate"><br>
   
-    <!-- Buttons for editing, deleting, and changing task status -->
-    <button (click)="editTask()">Edit</button>
+        <!-- Priority Dropdown -->
+        <label>Priority: </label>
+        <select formControlName="priority">
+          <option *ngFor="let priority of priorityOptions" [value]="priority">{{ priority }}</option>
+        </select><br>
+  
+        <!-- Status Dropdown -->
+        <label>Status: </label>
+        <select formControlName="status">
+          <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+        </select><br>
+        
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  
     <button (click)="deleteTask()">Delete</button>
-    <button (click)="changeStatus()">Change Status</button>
   </div>
   

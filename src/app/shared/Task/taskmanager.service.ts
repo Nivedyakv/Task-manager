@@ -15,8 +15,10 @@ export class TaskmanagerService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl);
   }
-  getT(id:string):Observable<any> {
-    return this.http.get(this.apiUrl);
+  
+  getT(id: string): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get(url);
   }
 
   // Method to create a new task
@@ -24,15 +26,21 @@ export class TaskmanagerService {
     return this.http.post<Task>(this.apiUrl, task);
   }
 
-  // Method to update an existing task
+  // Method to update an existing task-using in dashboard
   updateTask(task: Task): Observable<Task> {
     const url = `${this.apiUrl}/${task.id}`;
     return this.http.put<Task>(url, task);
   }
-
+  
   // Method to delete a task
   deleteTask(taskId: number): Observable<void> {
     const url = `${this.apiUrl}/${taskId}`;
     return this.http.delete<void>(url);
   }
+  // Method to update an existing taskview
+  updateTaskview(taskId: string, updatedTask: Task): Observable<Task> {
+    const url = `${this.apiUrl}/${taskId}`;
+    return this.http.put<Task>(url, updatedTask);
+  }
+ 
 }

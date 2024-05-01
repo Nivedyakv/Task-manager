@@ -1,31 +1,47 @@
 {
   "tasks": [
     {
-      "id": "1d2e",
-      "title": "first ",
-      "description": "do",
-      "dueDate": "2024-04-01",
-      "priority": "High",
+      "id": "4d02",
+      "title": "hello",
+      "description": "good",
+      "dueDate": "2024-04-10",
+      "priority": "Medium",
       "status": "completed",
       "username": null
     },
     {
-      "id": "a150",
-      "title": "secondtask",
-      "description": "do",
-      "dueDate": "2024-05-01",
+      "id": "07ae",
+      "title": "add new",
+      "description": "task",
+      "dueDate": "2024-04-28",
+      "priority": "Medium",
+      "status": "Overdue",
+      "username": ""
+    },
+    {
+      "id": "46ce",
+      "title": "task09",
+      "description": "djbhjdb",
+      "dueDate": "2024-04-28",
       "priority": "Low",
-      "status": "completed",
-      "username": null
+      "status": "Completed",
+      "username": ""
     },
     {
-      "id": "aecf",
-      "title": "buy grocerries",
-      "description": "cooking",
-      "dueDate": "2024-05-01",
-      "priority": "High",
-      "status": "Pending",
-      "username": null
+      "id": "796b",
+      "title": "task1",
+      "description": "description",
+      "dueDate": "2024-05-14",
+      "priority": "Medium",
+      "status": "Pending"
+    },
+    {
+      "id": "d4c4",
+      "title": "trial",
+      "description": "jhbds",
+      "dueDate": "2024-05-14",
+      "priority": "Medium",
+      "status": "Pending"
     }
   ],
   "users": [
@@ -100,6 +116,111 @@
       "id": "198a",
       "username": "Nivedya",
       "password": "12345"
+    },
+    {
+      "id": "0c73",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "cccf",
+      "username": "Nivedya",
+      "password": "nivedya"
+    },
+    {
+      "id": "83fd",
+      "username": "darsana",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "darsana"
+    },
+    {
+      "id": "2610",
+      "username": "darsana",
+      "password": "darsana"
+    },
+    {
+      "id": "8119",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "6e26",
+      "username": "Alok",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "darsana"
+    },
+    {
+      "id": "6ec3",
+      "username": "Alok",
+      "password": "darsana"
+    },
+    {
+      "id": "8927",
+      "username": "jacob",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "123456"
+    },
+    {
+      "id": "2201",
+      "username": "jacob",
+      "password": "123456"
+    },
+    {
+      "id": "a98d",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "0e1c",
+      "username": "Kumar",
+      "password": "kumar"
+    },
+    {
+      "id": "ba1b",
+      "username": "Akram",
+      "password": "12345"
+    },
+    {
+      "id": "08ef",
+      "username": "kishor",
+      "password": "123345"
+    },
+    {
+      "id": "6ebb",
+      "username": "jh",
+      "password": "sdds"
+    },
+    {
+      "id": "3a33",
+      "username": "sds",
+      "password": "sfs"
+    },
+    {
+      "id": "68d2",
+      "username": "nbnbsdj",
+      "password": "sefwe"
+    },
+    {
+      "id": "9cf1",
+      "username": "jbgjnrjg",
+      "password": "nbfjnkdsfng"
+    },
+    {
+      "id": "f62f",
+      "username": "mahan",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "34567"
+    },
+    {
+      "id": "ff4e",
+      "username": "irfan",
+      "email": "nivedyakv2703@gmail.com",
+      "mob": "80751251906",
+      "password": "09876"
     }
   ]
 }

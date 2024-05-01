@@ -1,77 +1,77 @@
-// .add-task-container {
-//     // background-color: #feb9b9; /* Choose your preferred background color */
-//     padding: 20px;
-//     border-radius: 10px;
-//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.add-task-container {
+    // background-color: #feb9b9; /* Choose your preferred background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
      
-//     // background-image: url('/assets/todo.jpg');
-//     background-image: url(https://i.pinimg.com/564x/3d/46/30/3d4630d017b344eed3b5ad1036806d3d.jpg);
-//     background-repeat: no-repeat 
     
-//   }
-  
-//   .add-task-container h2 {
-//     margin-bottom: 20px;
-//   }
-  
-//   .add-task-container form {
-//     display: flex;
-//     flex-direction: column;
-//   }
-  
-//   .add-task-container label {
-//     margin-bottom: 5px;
-//   }
-  
-//   .add-task-container input[type="text"],
-//   .add-task-container textarea,
-//   .add-task-container input[type="date"],
-//   .add-task-container select {
-//     padding: 8px;
-//     margin-bottom: 15px;
-//     border-radius: 5px;
-//     border: 1px solid #ccc;
-//   }
-  
-//   .add-task-container textarea {
-//     height: 100px;
-//   }
-  
-//   .add-task-container button {
-//     padding: 10px 20px;
-//     border: none;
-//     border-radius: 5px;
-//     background-color: #007bff;
-//     color: #fff;
-//     cursor: pointer;
-//   }
-  
-//   .add-task-container button:disabled {
-//     background-color: #ccc;
-//     cursor: not-allowed;
-//   }
-  
-//   .add-task-container button:hover {
-//     background-color: #0056b3;
-//   }
-//   div {
-  
-//     padding: 20px;
-//     border-radius: 5px;
+    background-image: url('/assets/addtodo.jpg');
+    background-repeat: no-repeat ;
     
-//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow */
-//     animation: fadeIn 0.5s ease-in-out;
-//     display: flex; /* Added */
-//     flex-direction: column; /* Added */
-//     align-items: center; /* Added */
-//   }  
-//   * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     font-family: 'Montserrat', sans-serif;
+  }
+  
+  .add-task-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .add-task-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-task-container label {
+    margin-bottom: 5px;
+  }
+  
+  .add-task-container input[type="text"],
+  .add-task-container textarea,
+  .add-task-container input[type="date"],
+  .add-task-container select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .add-task-container textarea {
+    height: 100px;
+  }
+  
+  .add-task-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .add-task-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .add-task-container button:hover {
+    background-color: #0056b3;
+  }
+  div {
+  
+    padding: 20px;
+    border-radius: 5px;
+    
+    box-shadow: 0 10px 6px rgba(97, 0, 175, 0.1); /* Adding shadow */
+    animation: fadeIn 0.5s ease-in-out;
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+    align-items: center; /* Added */
+  }  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
    
-// }
-// h2{
-//     color: #8600b3;
-// }
+}
+h2{
+    color: #8600b3;
+}

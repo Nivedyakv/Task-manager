@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import {  HttpClientModule } from '@angular/common/http';
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,6 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-  formSubmitted = false;
   form!: FormGroup;
 
   constructor(
@@ -30,41 +28,31 @@ export class LoginComponent implements OnInit{
       password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
-
-  Login() {
+  login(): void {
     if (this.form.valid) {
-      const formValue:any = this.form.value;
-      console.log(formValue);
-      this.loginService.loginget(formValue).subscribe(
-        (response: any) => {
-        console.log(response);
-          if (response.username) {
-           
-            this.router.navigate(['/dashboard']);
-            Swal.fire({
-              title: 'Good job!',
-              text: 'Login successful!',
-              icon: 'success'
-            });
-          } else {
-            Swal.fire({
-              title: 'Wrong Username or Password?',
-              text: 'Try to login again..',
-              icon: 'question'
-            });
-          }
-        },
-        (error) => {
-          console.error('Login error:', error);
-          Swal.fire({
-            title: 'Error',
-            text: 'An error occurred. Please try again later.',
-            icon: 'error'
-          });
-        }
-      );
+      const username = this.form.get('username')?.value;
+const password = this.form.get('password')?.value;
+this.loginService.checkCredentials(username, password).subscribe(
+  (response) => {
+    if (response && response.length > 0) {
+      console.log('Login successful', response);
+      this.router.navigateByUrl('/dashboard');
     } else {
-      this.form.markAllAsTouched();
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Credentials',
+        text: 'Please enter valid username and password.'
+      });
+    }
+  },
+  (error) => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Login Error',
+      text: 'An error occurred while logging in. Please try again later.'
+    });
+  }
+);
     }
   }
 

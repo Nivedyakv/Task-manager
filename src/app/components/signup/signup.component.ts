@@ -16,11 +16,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit{
   signupForm!:FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private logService: LogService,private router:Router) {
-    
-  }
-
+  constructor(private formBuilder: FormBuilder, private logService: LogService,private router:Router) { }
+  
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -29,24 +26,17 @@ export class SignupComponent implements OnInit{
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
   }
-
+  // onsubmit
   onSubmit() {
-    if (this.signupForm.valid) {
-     
-        this.router.navigateByUrl('');
-       
-    
-      
-      console.log(this.signupForm.value);
-      this.logService.signup(this.signupForm.value).subscribe(
+    if (this.signupForm.valid) {   
+        this.logService.signup(this.signupForm.value).subscribe(
         response => {
           Swal.fire('Success!', 'User signed up successfully!', 'success');
-         
+          this.router.navigateByUrl('');
         },
         error => {
           Swal.fire('Error!', 'Failed to sign up user!', 'error');
           console.error('Signup failed:', error);
-         
         }
       );
     } else {
