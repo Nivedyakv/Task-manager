@@ -11,35 +11,6 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent {
   title = 'taskmanager';
-  public userShow=false;
-  public loginshow=true;
-  
-  constructor(private router:Router){}
-
-  User(){
-    if(localStorage.getItem('token')){
-      this.userShow=true;
-      this.loginshow=false;
-    } 
-  }
-
-
-  logout(){
-    sessionStorage.clear();
-    Swal.fire({
-      icon: 'success',
-      title: 'Logged Out',
-      timer: 1500,
-      showConfirmButton: false
-    });  
-    this.router.navigateByUrl('login');
-   
-
-  }
-
-   ngOnInit(): void {
-    this.User();
-   }
 
   
 }

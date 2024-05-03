@@ -1,22 +1,8 @@
+// .dashboard-container{
+//    background-image: url(/assets/img2.png);
+ 
+// }
 
-  
-//   .task-card {
-//     width: calc(33.33% - 20px); /* Calculate width for each task card */
-//     height: 200px; /* Set a specific height for the task cards */
-//     border-radius: 8px;
-    
-//   }
-//   .task-card {
-   
-//     background-color: #FAD0C9;
-//     $lightColors: #e2d7ff, #e6c5ff, #c3ccff, #ebd8ff, #f3c9fa;
-  
-//     @for $i from 1 through length($lightColors) {
-//       &:nth-of-type(#{$i}) {
-//         background-color: nth($lightColors, $i);
-//       }
-//     }
-    
 //         button {
 //             margin-top: 10px;
 //           background-color: #6f00ff;
@@ -33,31 +19,44 @@
 //             background-color: #bd77ff;
 //           }
 //         }
-    
-        
-      
-  
-    
-//     }
  
-//   ol, ul {
-//     padding-left: 2rem;
-//     display: flex;
-//     gap: 20px; /* Increase the gap between flex items */
-//     flex-wrap: wrap;
-//     list-style: none;
-//   }
+//         ol, ul {
+//             padding-left: 2rem;
+//             display: flex;
+//             gap: 20px; 
+//             flex-wrap: wrap;
+//             list-style: none;
+//           }
+          
+          
+//           ol li, ul li {
+//             height: 200px; 
+//             background-color: #ca68ff; 
+//             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+//             border-radius: 8px; 
+//         margin-left: 10px;
+//             padding: 20px; 
+//             color: white;
+//             font-weight: bold;
+//             border: 2px solid; 
+//            border-left-color: #ccc;
+//            border-top-color: #bd77ff;
+//            border-right-color: #512da8;
+//            margin-bottom: 20px;
+//           }
+          
 //   span{
 //     font-size: 20px;
 //     display: flex;
 //     flex-direction: column;
 //     padding-left: 20px;
+   
 //   }
   
 //   input[type="checkbox"] {
 //     width: 2em;
 //     height: 2rem;
-//     accent-color: rgb(3, 3, 3);
+//     accent-color: rgb(42, 116, 60);
    
 //   }
 //   .filter-options {
@@ -65,6 +64,7 @@
 //     align-items: center;
 //     margin-bottom: 20px;
 //     text-align: center;
+//     color:white ;
   
 //     label {
 //       margin-right: 10px;
@@ -79,19 +79,20 @@
 //       font-size: 14px;
 //       cursor: pointer;
 //       transition: border-color 0.3s ease;
-  
+//   background-color: #ffffff;
 //       &:focus {
-//         border-color: dodgerblue;
+//         border-color: rgb(231, 178, 255);
 //       }
 //     }
 //   }
  
-//   h1 {
-//     font-size: 34px;
-//     color: #2b0063;
-//     text-align: center;
+// //   h1 {
+// //     font-size: 34px;
+// //     color: #caa2ff;
+// //     text-align: center;
+// //     background-color: white;
     
-//   }
+// //   }
 //   .add {
 //     text-align: center; // Center align the button horizontally
 //   }
@@ -99,7 +100,7 @@
 //   button {
 //     display: inline-block; // Ensure button occupies only necessary space
 //     border: none;
-//     background-color: #6f00ff;
+//     background-color:#512da8;
 //     color: white;
 //     border-radius: 4px;
 //     padding: 8px 16px;
@@ -118,7 +119,8 @@
 //   }
 //   .toolbar {
 //     display: flex;
-//     align-items: center; /* Align items vertically */
+//     align-items: center;
+    
 //   }
   
 //   .filter-options {
@@ -126,23 +128,5 @@
 //     margin-left: 40px;
 //   }
   
-//   button {
-//     border: none;
-//     background-color: #6f00ff;
-//     color: white;
-//     border-radius: 4px;
-//     padding: 8px 16px;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease;
-  
-//     &:hover {
-//       background-color: #bd77ff;
-//     }
-  
-//     div {
-//       padding: 4px 8px;
-//       font-weight: bold;
-//     }
-//   }
-  
+ 
   

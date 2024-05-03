@@ -1,77 +1,60 @@
+
 .add-task-container {
-    // background-color: #feb9b9; /* Choose your preferred background color */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-     
+    left: 40px;
+    top: 80px;
+    // Card-like styling
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px; // Adjusted padding for a smaller card
+    max-width: 519px; // Set a maximum width for the card
     
-    background-image: url('/assets/addtodo.jpg');
-    background-repeat: no-repeat ;
-    
+    // Form elements
+    form {
+      div {
+        margin-bottom: 10px; // Adjusted margin for smaller spacing
+        
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+        
+        input[type="text"],
+        textarea,
+        input[type="date"],
+        select {
+          width: calc(100% - 20px); // Adjusted width for smaller input fields
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          
+          &:focus {
+            outline: none;
+            border-color: #007bff; // Adjusted focus color for input fields
+          }
+        }
+      }
+      
+      button[type="submit"] {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px; // Adjusted padding for smaller button
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: #0056b3; // Adjusted hover color for button
+        }
+        
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
   }
   
-  .add-task-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .add-task-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .add-task-container label {
-    margin-bottom: 5px;
-  }
-  
-  .add-task-container input[type="text"],
-  .add-task-container textarea,
-  .add-task-container input[type="date"],
-  .add-task-container select {
-    padding: 8px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .add-task-container textarea {
-    height: 100px;
-  }
-  
-  .add-task-container button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .add-task-container button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .add-task-container button:hover {
-    background-color: #0056b3;
-  }
-  div {
-  
-    padding: 20px;
-    border-radius: 5px;
-    
-    box-shadow: 0 10px 6px rgba(97, 0, 175, 0.1); /* Adding shadow */
-    animation: fadeIn 0.5s ease-in-out;
-    display: flex; /* Added */
-    flex-direction: column; /* Added */
-    align-items: center; /* Added */
-  }  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-   
-}
-h2{
-    color: #8600b3;
-}

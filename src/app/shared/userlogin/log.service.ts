@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Users } from '../../interfaces/myinterface';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -14,33 +14,31 @@ export class LogService {
 
   constructor(private http: HttpClient) { }
   
-  // loginget(payload:any) {
-  //   return this.http.post('http://localhost:3000/users',payload);
-  // }
+  //for login
   checkCredentials(username: string, password: string): Observable<any> {
     return this.http.get(`${this.apiUrl}?username=${username}&password=${password}`);
   }
-  
+
   signup(formData: any) {
     return this.http.post('http://localhost:3000/users', formData);
   }
-  getUserDetails(username: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?username=${username}`).pipe(
-      catchError((error: any) => {
-        console.error('Error fetching user details:', error);
-        throw error;
-      })
-    );
-  }
-  updateProfile(user: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/users/${user.id}`, user);
+
+  getUserData(username: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}?username=${username}`);
   }
   
-  changePassword(passwordData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/change-password`, passwordData);
-  }
-  getUserProfile() {
-    return this.http.get<Users>(`${this.apiUrl}/profile`);
+  updateUserData(id: number, userData: any): Observable<any> {
+    // Assuming the API endpoint is /users/{id}
+    return this.http.put<any>(`${this.apiUrl}/${id}`, userData);
+  }  
+  
+ 
+  
+  uploadProfilePicture(userId: number, imageFile: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', imageFile);
+
+    return this.http.post<any>(`${this.apiUrl}/${userId}/profile-picture`, formData);
   }
 }
   

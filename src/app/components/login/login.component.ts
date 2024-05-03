@@ -32,10 +32,12 @@ export class LoginComponent implements OnInit{
     if (this.form.valid) {
       const username = this.form.get('username')?.value;
 const password = this.form.get('password')?.value;
-this.loginService.checkCredentials(username, password).subscribe(
+  this.loginService.checkCredentials(username, password).subscribe(
   (response) => {
+    console.log(response);
     if (response && response.length > 0) {
-      console.log('Login successful', response);
+    
+    sessionStorage.setItem('username',username)
       this.router.navigateByUrl('/dashboard');
     } else {
       Swal.fire({

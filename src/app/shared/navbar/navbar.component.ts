@@ -14,7 +14,7 @@ export class NavbarComponent {
   menu_icon: string = 'bi bi-list';
   UserShow: boolean = false;
 
-  constructor(private roueter:Router) { }
+  constructor(private router: Router) { }
 
 
   openMenu(): void {
@@ -28,15 +28,19 @@ export class NavbarComponent {
   }
 
 
-  logout(){
-   
-    Swal.fire({
-      icon: 'success',
-      title: 'Logged Out',
-      timer: 1500,
-      showConfirmButton: false
-    });  
-   
-
+  
+  logout(): void {
+    // Clear session storage
+    sessionStorage.clear();
+    // Navigate to the login page
+    this.router.navigateByUrl('').then(() => {
+      // Show success message after successful navigation
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged Out',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    });
   }
 }

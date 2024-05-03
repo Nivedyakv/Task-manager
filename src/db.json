@@ -3,10 +3,10 @@
     {
       "id": "4d02",
       "title": "hello",
-      "description": "good",
+      "description": "good morning",
       "dueDate": "2024-04-10",
       "priority": "Medium",
-      "status": "completed",
+      "status": "pending",
       "username": null
     },
     {
@@ -15,25 +15,8 @@
       "description": "task",
       "dueDate": "2024-04-28",
       "priority": "Medium",
-      "status": "Overdue",
-      "username": ""
-    },
-    {
-      "id": "46ce",
-      "title": "task09",
-      "description": "djbhjdb",
-      "dueDate": "2024-04-28",
-      "priority": "Low",
       "status": "Completed",
       "username": ""
-    },
-    {
-      "id": "796b",
-      "title": "task1",
-      "description": "description",
-      "dueDate": "2024-05-14",
-      "priority": "Medium",
-      "status": "Pending"
     },
     {
       "id": "d4c4",
@@ -41,186 +24,94 @@
       "description": "jhbds",
       "dueDate": "2024-05-14",
       "priority": "Medium",
-      "status": "Pending"
+      "status": "Completed"
+    },
+    {
+      "id": "53f6",
+      "title": "task5",
+      "description": "demo",
+      "dueDate": "2024-04-30",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": "e42e",
+      "title": "task6",
+      "description": "demo",
+      "dueDate": "2024-05-27",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "94e0",
+      "title": "task7",
+      "description": "semo",
+      "dueDate": "2024-05-27",
+      "priority": "Medium",
+      "status": "pending"
+    },
+    {
+      "id": "9bea",
+      "title": "Task 1",
+      "description": "Buy a Car",
+      "dueDate": "2024-05-10",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": "407e",
+      "title": "JKN Task_01",
+      "description": "this is the trail for task creation.",
+      "dueDate": "2024-05-01",
+      "priority": "High",
+      "status": "Overdue"
     }
   ],
   "users": [
     {
-      "id": "11a0",
-      "username": "nivedya",
-      "email": "nivedyakv2703@gmail.com",
+      "username": "kiran",
       "mob": "80751251906",
-      "password": "123456"
+      "email": "nivedyakv2703@gmail.com",
+      "id": "11a0"
     },
     {
-      "id": "c159",
       "username": "Nivedya",
+      "mob": "1234567890",
       "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "123456"
+      "id": "e465"
     },
     {
-      "id": "bf76",
-      "username": "rohan",
+      "username": "Username",
+      "mob": "80751251906",
       "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "123456"
+      "id": "c0cf"
     },
     {
-      "id": "d0bb",
-      "username": "merlin",
-      "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "123456"
-    },
-    {
-      "id": "68c8",
-      "username": "Kumar",
-      "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "kumar"
-    },
-    {
-      "id": "d2b3",
-      "username": "John",
-      "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "12345"
-    },
-    {
-      "id": "eaec",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "a3f8",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "d92c",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "1979",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "1fe4",
-      "username": "rohan",
-      "password": "123456"
-    },
-    {
-      "id": "198a",
       "username": "Nivedya",
-      "password": "12345"
+      "mob": "8076544444",
+      "email": "demo@gmail.com",
+      "id": "4ac9"
     },
     {
-      "id": "0c73",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "cccf",
-      "username": "Nivedya",
-      "password": "nivedya"
-    },
-    {
-      "id": "83fd",
-      "username": "darsana",
-      "email": "nivedyakv2703@gmail.com",
+      "username": "Nehaki",
       "mob": "80751251906",
-      "password": "darsana"
-    },
-    {
-      "id": "2610",
-      "username": "darsana",
-      "password": "darsana"
-    },
-    {
-      "id": "8119",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "6e26",
-      "username": "Alok",
       "email": "nivedyakv2703@gmail.com",
+      "password": "",
+      "id": "8621"
+    },
+    {
+      "username": "Neha",
       "mob": "80751251906",
-      "password": "darsana"
-    },
-    {
-      "id": "6ec3",
-      "username": "Alok",
-      "password": "darsana"
-    },
-    {
-      "id": "8927",
-      "username": "jacob",
       "email": "nivedyakv2703@gmail.com",
+      "password": "",
+      "id": "ae98"
+    },
+    {
+      "username": "Neha",
       "mob": "80751251906",
-      "password": "123456"
-    },
-    {
-      "id": "2201",
-      "username": "jacob",
-      "password": "123456"
-    },
-    {
-      "id": "a98d",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "0e1c",
-      "username": "Kumar",
-      "password": "kumar"
-    },
-    {
-      "id": "ba1b",
-      "username": "Akram",
-      "password": "12345"
-    },
-    {
-      "id": "08ef",
-      "username": "kishor",
-      "password": "123345"
-    },
-    {
-      "id": "6ebb",
-      "username": "jh",
-      "password": "sdds"
-    },
-    {
-      "id": "3a33",
-      "username": "sds",
-      "password": "sfs"
-    },
-    {
-      "id": "68d2",
-      "username": "nbnbsdj",
-      "password": "sefwe"
-    },
-    {
-      "id": "9cf1",
-      "username": "jbgjnrjg",
-      "password": "nbfjnkdsfng"
-    },
-    {
-      "id": "f62f",
-      "username": "mahan",
       "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "34567"
-    },
-    {
-      "id": "ff4e",
-      "username": "irfan",
-      "email": "nivedyakv2703@gmail.com",
-      "mob": "80751251906",
-      "password": "09876"
+      "password": "profile",
+      "id": "6f39"
     }
   ]
 }

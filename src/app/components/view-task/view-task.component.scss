@@ -1,0 +1,65 @@
+.task-edit-form {
+    width: 500px; /* Adjust width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: fixed;
+    left: 220px; /* Adjust left positioning as needed */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .task-edit-form h3 {
+    margin-top: 0;
+  }
+  
+  .task-edit-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .task-edit-form input[type="text"],
+  .task-edit-form select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .task-edit-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .task-edit-form button:hover {
+    background-color: #0056b3;
+  }
+  .task-form {
+    font-family: Arial, sans-serif; 
+    
+    .task-title {
+      color: #dc8bff; 
+      
+      margin-bottom: 10px; 
+    }
+  
+    .task-edit-button {
+      background-color: #007bff; 
+      color: #fff; 
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px; 
+      margin-bottom: 10px;
+    }
+  }
+  
+  

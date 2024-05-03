@@ -15,7 +15,7 @@ export class TaskmanagerService {
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl);
   }
-  
+
   getT(id: string): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get(url);
@@ -43,4 +43,13 @@ export class TaskmanagerService {
     return this.http.put<Task>(url, updatedTask);
   }
  
+
+  getChartInfo(){
+    
+  return this.http.get("http://localhost:3000/tasks");
+
+  }
+  Getalltasks(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 }

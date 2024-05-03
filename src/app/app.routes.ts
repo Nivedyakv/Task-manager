@@ -1,4 +1,6 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
+import { PiechartComponent } from './components/piechart/piechart.component';
 
 
 export const routes: Routes = [
@@ -11,9 +13,7 @@ export const routes: Routes = [
     import('./components/dashboard/dashboard.component').then(
         (c) => c.DashboardComponent,)
      },
-    // {
-    //     path:'dashboard',component:DashboardComponent
-    // },
+   
      {
         path:'addtask',loadComponent:()=>
             import('./components/add-task/add-task.component').then(
@@ -33,7 +33,8 @@ export const routes: Routes = [
         path:'view',loadComponent:()=>
             import('./components/view-task/view-task.component').then(
                 (c) => c.ViewTaskComponent)
-    }
+    },
+    {path:'piechart',component:PiechartComponent}
 ];
 
 // canActivate:[authGuard]

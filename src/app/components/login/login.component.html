@@ -8,14 +8,14 @@
         <div class="login-body">
           <input type="text" name="username" id="username" formControlName="username" required placeholder="Username">
           <div *ngIf="form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched)"
-            class="inv">Name required</div>
-          <div *ngIf="form.get('username')?.errors?.['username']" class="inv">Please enter a valid email address</div>
+            class="login-invalid">Name required</div>
+          <div *ngIf="form.get('username')?.errors?.['username']" class="login-invalid">Please enter a valid email address</div>
         </div>
         <div class="login-body">
-          <input type="password" name="password" formControlName="password" required placeholder="Password">
+          <input type="password" name="password" formControlName="password"  placeholder="Password">
           <div *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)"
-            class="inv">Password required</div>
-          <div *ngIf="form.get('password')?.errors?.['minlength']" class="inv">Password must be at least 5 characters</div>
+            class="login-invalid">Password required</div>
+          <div *ngIf="form.get('password')?.errors?.['minlength']" class="login-invalid">Password must be at least 5 characters</div>
         </div>
         <!-- Login  -->
         <div class="login-button">

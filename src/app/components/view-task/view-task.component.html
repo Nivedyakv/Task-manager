@@ -1,9 +1,13 @@
-<div *ngIf="task">
-    <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
-      <h2>{{ task.title }}</h2>
-      <button type="button" (click)="updateTaskView()" *ngIf="!editMode">Edit</button>
+<div class="task-container">
+    <form class="task-form" [formGroup]="taskForm" (ngSubmit)="saveTask()">
+      <h1 class="task-title">{{ task.title }}</h1>
+      <h3 class="task-description">{{ task.description }}</h3>
+      <h3 class="task-dueDate">{{ task.dueDate }}</h3>
+      <h3 class="task-priority">{{ task.priority }}</h3>
+      <h3 class="task-status">{{ task.status }}</h3>
+      <button type="button" class="task-edit-button" (click)="updateTaskView()" *ngIf="!editMode">Edit</button>
       <!-- Edit form -->
-      <div *ngIf="editMode">
+      <div class="task-edit-form" *ngIf="editMode">
         <h3>Edit Task</h3>
         <label>Title: </label>
         <input type="text" formControlName="title"><br>
@@ -28,6 +32,5 @@
       </div>
     </form>
   
-    <button (click)="deleteTask()">Delete</button>
-  </div>
-  
+    <button class="task-delete-button" (click)="deleteTask()">Delete</button>
+</div>

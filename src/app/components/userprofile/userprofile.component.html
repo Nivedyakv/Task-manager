@@ -1,40 +1,39 @@
 <div class="container">
-    <div class="card">
-      <h1 class="mb-4">Welcome to Profile Page</h1>
-      <div class="profile-picture-container">
-        <img *ngIf="profilePicture" [src]="profilePicture" alt="Profile Picture">
-      </div>
-      <input type="file" class="form-control mb-3" (change)="onFileSelected($event)">
-      <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveChanges()">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" class="form-control" formControlName="username">
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" class="form-control" formControlName="email">
-        </div>
-        <div class="form-group">
-          <label for="mob">Mobile:</label>
-          <input type="text" id="mob" class="form-control" formControlName="mob">
-        </div>
-        <div class="form-group">
-          <label for="oldPassword">Old Password:</label>
-          <input type="password" id="oldPassword" class="form-control" formControlName="oldPassword">
-        </div>
-        <div class="form-group">
-          <label for="newPassword">New Password:</label>
-          <input type="password" id="newPassword" class="form-control" formControlName="newPassword">
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password:</label>
-          <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
-          <div *ngIf="profileForm.get('confirmPassword')?.value !== profileForm.get('newPassword')?.value && profileForm.get('confirmPassword')?.value !== ''" class="text-danger">
-            Passwords do not match.
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid">Save Changes</button>
-      </form>
+  <div class="card">
+    <h1 class="mb-4">Welcome to Profile Page</h1>
+    <div class="profile-picture-container">
+      <img *ngIf="profilePicture" [src]="profilePicture" alt="Profile Picture">
     </div>
+    <input type="file" class="form-control mb-3" (change)="onFileSelected($event)">
+    <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveChanges()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" class="form-control" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="mob">Mobile:</label>
+        <input type="text" id="mob" class="form-control" formControlName="mob">
+      </div>
+      <div class="form-group" *ngIf="showPasswordChange">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" class="form-control" formControlName="oldPassword">
+        <span *ngIf="!isPassword">enter correct password</span>
+      </div>
+      <div class="form-group" *ngIf="showPasswordChange">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" class="form-control" formControlName="newPassword">
+      </div>
+      <div class="form-group" *ngIf="showPasswordChange">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+        <span *ngIf="profileForm.get('newPassword')?.touched && profileForm.get('confirmPassword')?.touched && profileForm.errors && profileForm.errors['mismatch']" class="text-danger">Passwords do not match</span>
+      </div>
+      <button type="button" class="btn btn-primary"   (click)="(showPasswordChange = !showPasswordChange)">Change Password</button>
+      <button type="submit" class="btn btn-primary" *ngIf="!showPasswordChange" >Save Changes</button>
+    </form>
   </div>
-  
+</div>
