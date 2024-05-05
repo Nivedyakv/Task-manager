@@ -1,9 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { Task } from '../../interfaces/myinterface';
 import { TaskmanagerService } from '../../shared/Task/taskmanager.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import Swal from 'sweetalert2';
 @Component({
@@ -16,7 +15,7 @@ import Swal from 'sweetalert2';
 export class ViewTaskComponent implements OnInit{
 taskForm!: FormGroup;
 task: any; 
-editMode: boolean = false;
+editMode: boolean = true;
 taskId!: string;
 priorityOptions: string[] = ['Low', 'Medium', 'High'];
 statusOptions: string[] = ['Pending', 'Completed', 'Overdue'];
@@ -25,7 +24,7 @@ constructor(private formBuilder: FormBuilder,private taskService: TaskmanagerSer
 
 ngOnInit(): void {
   this.taskForm = this.formBuilder.group({
-    title: [''],
+    title: ['',Validators.required],
     description: [''],
     dueDate: [''],
     priority: [''],
@@ -67,7 +66,7 @@ getTaskDetails(taskId: string): void {
             title: 'Success',
             text: 'Task Edited and saved successfully.'
           });
-          this.editMode = false; // Exit edit mode
+          // this.editMode = false; // Exit edit mode
           this.router.navigate(['/dashboard']);
         } );
     }

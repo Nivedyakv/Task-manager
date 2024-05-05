@@ -1,11 +1,12 @@
 <div class="container">
   <div class="card">
     <h1 class="mb-4">Welcome to Profile Page</h1>
-    <div class="profile-picture-container">
-      <img *ngIf="profilePicture" [src]="profilePicture" alt="Profile Picture">
-    </div>
-    <input type="file" class="form-control mb-3" (change)="onFileSelected($event)">
     <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveChanges()">
+      <div class="profile-picture-container">
+        <label for="profilePicture"><i class="fas fa-camera"></i> Uploade image</label>
+        <input type="file" id="profilePicture" (change)="onFileSelected($event)" accept="image/*">
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="Uploaded Image">
+      </div>
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" class="form-control" formControlName="username">
@@ -32,8 +33,8 @@
         <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
         <span *ngIf="profileForm.get('newPassword')?.touched && profileForm.get('confirmPassword')?.touched && profileForm.errors && profileForm.errors['mismatch']" class="text-danger">Passwords do not match</span>
       </div>
-      <button type="button" class="btn btn-primary"   (click)="(showPasswordChange = !showPasswordChange)">Change Password</button>
-      <button type="submit" class="btn btn-primary" *ngIf="!showPasswordChange" >Save Changes</button>
+      <button type="button" class="btn btn-primary" (click)="(showPasswordChange = !showPasswordChange)">Change Password</button>
+      <button type="submit" class="btn btn-primary" *ngIf="!showPasswordChange">Save Changes</button>
     </form>
   </div>
 </div>

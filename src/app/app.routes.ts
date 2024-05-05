@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { PiechartComponent } from './components/piechart/piechart.component';
 
+import { canActivateTeam } from './core/Guards/auth.guard';
+
 
 export const routes: Routes = [
      {path:'',loadComponent: () =>
@@ -9,13 +11,13 @@ export const routes: Routes = [
             (c) => c.LoginComponent)
     },
     
-    {path:'dashboard',loadComponent: () =>
+    {path:'dashboard',canActivate:[canActivateTeam],   loadComponent: () =>
     import('./components/dashboard/dashboard.component').then(
         (c) => c.DashboardComponent,)
      },
    
      {
-        path:'addtask',loadComponent:()=>
+        path:'addtask',canActivate:[canActivateTeam], loadComponent:()=>
             import('./components/add-task/add-task.component').then(
                 (c) => c.AddTaskComponent)
      },
@@ -25,16 +27,16 @@ export const routes: Routes = [
             (c) => c.SignupComponent)
     },
     {
-        path:'profile',loadComponent:()=>
+        path:'profile',canActivate:[canActivateTeam], loadComponent:()=>
             import('./components/userprofile/userprofile.component').then(
                 (c) => c.UserprofileComponent)
     },
     {
-        path:'view',loadComponent:()=>
+        path:'view',canActivate:[canActivateTeam], loadComponent:()=>
             import('./components/view-task/view-task.component').then(
                 (c) => c.ViewTaskComponent)
     },
-    {path:'piechart',component:PiechartComponent}
+    {path:'piechart',component:PiechartComponent,canActivate:[canActivateTeam], }
 ];
 
 // canActivate:[authGuard]

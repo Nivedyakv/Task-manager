@@ -5,6 +5,9 @@ import { Users } from '../../interfaces/myinterface';
 import { Observable } from 'rxjs';
 
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,13 +36,22 @@ export class LogService {
   }  
   
  
-  
   uploadProfilePicture(userId: number, imageFile: File): Observable<any> {
     const formData = new FormData();
     formData.append('image', imageFile);
-
-    return this.http.post<any>(`${this.apiUrl}/${userId}/profile-picture`, formData);
+    return this.http.post<any>(`http://localhost:3000/users/${userId}/profile-picture`, formData);
   }
-}
+
+  isAuthenticated: boolean = false;
+  isAuthenticatedFunction(){
+    const username=sessionStorage.getItem('username')
+    if(username){
+      this.isAuthenticated=true;
+    }
+        return this.isAuthenticated;
+          }   
+
+    }
+    
   
   

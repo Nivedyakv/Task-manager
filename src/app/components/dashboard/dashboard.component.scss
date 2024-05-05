@@ -1,132 +1,121 @@
-// .dashboard-container{
-//    background-image: url(/assets/img2.png);
- 
-// }
+.main-dashboard {
+    display: flex;
+    flex-wrap: wrap 3 ;
+   
+   
+   
+}
 
-//         button {
-//             margin-top: 10px;
-//           background-color: #6f00ff;
-//           color: white;
-//           border: none;
-//           border-radius: 4px;
-//           padding: 8px 16px;
-//           margin-left: 10px;
-//           cursor: pointer;
-//           transition: background-color 0.3s ease;
-         
   
-//           &:hover {
-//             background-color: #bd77ff;
-//           }
-//         }
- 
-//         ol, ul {
-//             padding-left: 2rem;
-//             display: flex;
-//             gap: 20px; 
-//             flex-wrap: wrap;
-//             list-style: none;
-//           }
-          
-          
-//           ol li, ul li {
-//             height: 200px; 
-//             background-color: #ca68ff; 
-//             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-//             border-radius: 8px; 
-//         margin-left: 10px;
-//             padding: 20px; 
-//             color: white;
-//             font-weight: bold;
-//             border: 2px solid; 
-//            border-left-color: #ccc;
-//            border-top-color: #bd77ff;
-//            border-right-color: #512da8;
-//            margin-bottom: 20px;
-//           }
-          
-//   span{
-//     font-size: 20px;
-//     display: flex;
-//     flex-direction: column;
-//     padding-left: 20px;
-   
-//   }
+  button {
+    margin-top: 10px;
+    background-color: #6f00ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
   
-//   input[type="checkbox"] {
-//     width: 2em;
-//     height: 2rem;
-//     accent-color: rgb(42, 116, 60);
-   
-//   }
-//   .filter-options {
-//     display: flex;
-//     align-items: center;
-//     margin-bottom: 20px;
-//     text-align: center;
-//     color:white ;
+  button:hover {
+    background-color: #bd77ff;
+  }
   
-//     label {
-//       margin-right: 10px;
-//       font-weight: bold;
-//     }
+  ol,
+  ul {
+    padding-left: 2rem;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    list-style: none;
+  }
   
-//     select {
-//       padding: 8px;
-//       border: 1px solid #ccc;
-//       border-radius: 20px; /* Rounded corners */
-//       outline: none;
-//       font-size: 14px;
-//       cursor: pointer;
-//       transition: border-color 0.3s ease;
-//   background-color: #ffffff;
-//       &:focus {
-//         border-color: rgb(231, 178, 255);
-//       }
-//     }
-//   }
- 
-// //   h1 {
-// //     font-size: 34px;
-// //     color: #caa2ff;
-// //     text-align: center;
-// //     background-color: white;
-    
-// //   }
-//   .add {
-//     text-align: center; // Center align the button horizontally
-//   }
+  ol li,
+  ul li {
+    height: 200px;
+    background-color: #dfabff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-left: 10px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border: 2px solid;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+  }
   
-//   button {
-//     display: inline-block; // Ensure button occupies only necessary space
-//     border: none;
-//     background-color:#512da8;
-//     color: white;
-//     border-radius: 4px;
-//     padding: 8px 16px;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease;
-//     margin-bottom: 20px;
+  span {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
   
-//     &:hover {
-//       background-color: #bd77ff;
-//     }
+  input[type="checkbox"] {
+    width: 2em;
+    height: 2rem;
+    accent-color: rgb(42, 116, 60);
+  }
   
-//     div {
-//       padding: 4px 8px;
-//       font-weight: bold;
-//     }
-//   }
-//   .toolbar {
-//     display: flex;
-//     align-items: center;
-    
-//   }
+  .filter-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+  }
   
-//   .filter-options {
-//     margin-right: 20px; /* Add some spacing between elements */
-//     margin-left: 40px;
-//   }
+  label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  select:focus {
+    border-color: rgb(231, 178, 255);
+  }
+  
+  .add {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .toolbar {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+  }
+  
+  .pie-chart {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
   
  
+  @media screen and (max-width: 768px) {
+    ol,
+    ul {
+      padding-left: 0;
+    }
+  
+    ol li,
+    ul li {
+      width: 100%; 
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
   

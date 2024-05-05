@@ -5,25 +5,33 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+   
     
 }
 
-/* Background color and animation */
+
 .login {
-    background-color: #f1f1f1; /* Set a light background color */
+  
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    transition: background-color 0.5s; /* Smooth transition for background color change */
-    
+    transition: background-color 0.5s;
+    // background-image: url(/assets/login.png);
+    background-repeat: no-repeat;
 }
 
 .login:hover {
-    background-color: #e0e0e0; /* Change background color on hover */
+    background-color: #b88bfc; 
 }
 
+@media screen and (max-width: 768px) {
+    .login {
+        background-image: none;
+        
+    }
+}
 /* Container styles */
 .login-container {
     background-color: #ffffff;

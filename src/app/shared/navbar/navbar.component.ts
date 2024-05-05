@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,FormsModule,CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -27,7 +29,7 @@ export class NavbarComponent {
     this.menu_icon = 'bi bi-list';
   }
 
-
+ 
   
   logout(): void {
     // Clear session storage

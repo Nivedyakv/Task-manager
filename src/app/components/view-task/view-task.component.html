@@ -1,10 +1,6 @@
 <div class="task-container">
     <form class="task-form" [formGroup]="taskForm" (ngSubmit)="saveTask()">
-      <h1 class="task-title">{{ task.title }}</h1>
-      <h3 class="task-description">{{ task.description }}</h3>
-      <h3 class="task-dueDate">{{ task.dueDate }}</h3>
-      <h3 class="task-priority">{{ task.priority }}</h3>
-      <h3 class="task-status">{{ task.status }}</h3>
+    
       <button type="button" class="task-edit-button" (click)="updateTaskView()" *ngIf="!editMode">Edit</button>
       <!-- Edit form -->
       <div class="task-edit-form" *ngIf="editMode">
@@ -27,10 +23,10 @@
         <select formControlName="status">
           <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
         </select><br>
-        
+        <button class="task-delete-button" (click)="deleteTask()">Delete</button>
         <button type="submit">Save</button>
       </div>
     </form>
   
-    <button class="task-delete-button" (click)="deleteTask()">Delete</button>
+   
 </div>

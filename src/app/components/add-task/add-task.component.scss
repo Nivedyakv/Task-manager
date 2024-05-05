@@ -1,60 +1,63 @@
 
-.add-task-container {
-    left: 40px;
-    top: 80px;
-    // Card-like styling
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px; // Adjusted padding for a smaller card
-    max-width: 519px; // Set a maximum width for the card
+// .add-task-container {
+//     left: 40px;
+//     top: 80px;
+  
+//     background-color: #ffffff;
+//     border-radius: 8px;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     padding: 10px; 
+//     max-width: 519px; 
     
-    // Form elements
-    form {
-      div {
-        margin-bottom: 10px; // Adjusted margin for smaller spacing
+//     form {
+//       div {
+//         margin-bottom: 10px; 
         
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-weight: bold;
-        }
+//         label {
+//           display: block;
+//           margin-bottom: 5px;
+//           font-weight: bold;
+//         }
         
-        input[type="text"],
-        textarea,
-        input[type="date"],
-        select {
-          width: calc(100% - 20px); // Adjusted width for smaller input fields
-          padding: 8px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
+//         input[type="text"],
+//         textarea,
+//         input[type="date"],
+//         select {
+//           width: calc(100% - 20px);
+//           padding: 10px;
+//           border: 1px solid #ccc;
+//           border-radius: 4px;
+//           box-sizing: border-box;
+
           
-          &:focus {
-            outline: none;
-            border-color: #007bff; // Adjusted focus color for input fields
-          }
-        }
-      }
+//           &:focus {
+//             outline: none;
+//             border-color: #007bff; 
+//           }
+//         }
+//       }
       
-      button[type="submit"] {
-        background-color: #007bff;
-        color: #ffffff;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 16px; // Adjusted padding for smaller button
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+//       button[type="submit"] {
+//         background-color: #007bff;
+//         color: #ffffff;
+//         border: none;
+//         border-radius: 4px;
+//         padding: 8px 16px; 
+//         cursor: pointer;
+//         transition: background-color 0.3s ease;
         
-        &:hover {
-          background-color: #0056b3; // Adjusted hover color for button
-        }
+//         &:hover {
+//           background-color: #0056b3; 
+//         }
         
-        &:disabled {
-          background-color: #ccc;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
+//         &:disabled {
+//           background-color: #ccc;
+//           cursor: not-allowed;
+//         }
+//       }
+//     }
+//     .add-task-sameline{
+//       display: flex;
+//     }
+//   }
   

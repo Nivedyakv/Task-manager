@@ -44,12 +44,13 @@ export class TaskmanagerService {
   }
  
 
-  getChartInfo(){
+  // getChartInfo(){
     
-  return this.http.get("http://localhost:3000/tasks");
+  // return this.http.get("http://localhost:3000/tasks");
 
-  }
+  // }
   Getalltasks(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+  
 }

@@ -1,8 +1,9 @@
 
-
+<div class="main-dashboard">
 <!--Pie Chart -->
-<div class="pie-chart">
+<div class="pie-chart" >
  
+ <app-piechart [isUpdateChart]="isUpdateChart"></app-piechart>
 </div>
 
 <!-- Filter Options -->
@@ -29,5 +30,6 @@
     <button (click)="deleteTask(task.id)">Delete</button>
   </li>
 </ul>
+</div>
 </div>
 

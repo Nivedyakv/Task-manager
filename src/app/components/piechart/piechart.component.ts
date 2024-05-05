@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Chart ,registerables} from 'chart.js';
 import { TaskmanagerService } from '../../shared/Task/taskmanager.service';
+import { Router } from '@angular/router';
 Chart.register(...registerables);
 
 @Component({
@@ -11,8 +12,13 @@ Chart.register(...registerables);
   styleUrl: './piechart.component.scss'
 })
 export class PiechartComponent {
+ 
+  constructor(public taskmanagerservice:TaskmanagerService){
+  }
+  @Input() isUpdateChart!: boolean;
+
   ngOnInit(): void {
-    this.TaskmanagerService.Getalltasks().subscribe(
+    this.taskmanagerservice.Getalltasks().subscribe(
       (res: any) => {
         const data = res ?? [];
         let highCount = 0;
@@ -34,12 +40,16 @@ export class PiechartComponent {
       (error) => {
         console.error('Error fetching tasks:', error);
       }
-    );
+    ); 
   }
-
+  ngOnChanges(changes: SimpleChanges) {
+   if(this.isUpdateChart==true){
+    window.location.reload();
+   }
+  }
   createPieChart(lowCount: number, medCount: number, highCount: number): void {
-    const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
-    const pieChart = new Chart(ctx, {
+    const ctx = document.getElementById('piechart') as HTMLCanvasElement;
+    const pieChart = new Chart('piechart', {
       type: 'pie',
       data: {
         labels: ['High', 'Medium', 'Low'],
@@ -60,7 +70,7 @@ export class PiechartComponent {
         }]
       },
       options: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         plugins: {
           legend: {
