@@ -29,14 +29,11 @@ export class NavbarComponent {
     this.menu_icon = 'bi bi-list';
   }
 
- 
+ //logout function
   
   logout(): void {
-    // Clear session storage
     sessionStorage.clear();
-    // Navigate to the login page
     this.router.navigateByUrl('').then(() => {
-      // Show success message after successful navigation
       Swal.fire({
         icon: 'success',
         title: 'Logged Out',

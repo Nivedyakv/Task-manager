@@ -7,16 +7,36 @@
         <!-- login credential -->
         <div class="login-body">
           <input type="text" name="username" id="username" formControlName="username" required placeholder="Username">
-          <div *ngIf="form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched)"
-            class="login-invalid">Name required</div>
-          <div *ngIf="form.get('username')?.errors?.['username']" class="login-invalid">Please enter a valid email address</div>
-        </div>
-        <div class="login-body">
-          <input type="password" name="password" formControlName="password"  placeholder="Password">
-          <div *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)"
-            class="login-invalid">Password required</div>
-          <div *ngIf="form.get('password')?.errors?.['minlength']" class="login-invalid">Password must be at least 5 characters</div>
-        </div>
+          @if (form.get('username')?.invalid && (form.get('username')?.dirty || form.get('username')?.touched))
+          {
+              <div class="invalid">Name required</div>
+          }
+          @if (form.get('username')?.errors?.['username'])
+          {
+              <div class="invalid">Please enter a valid email address</div>
+          }
+      </div>
+        
+      <div class="login-body">
+        <input type="password" name="password" formControlName="password" placeholder="Password">
+        @if (form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched))
+        {
+          @if (form.get('password')?.errors?.['required'])
+          {
+            <div class="invalid">Password is required</div>
+          }
+          @if (form.get('password')?.errors?.['minlength'])
+          {
+            <div class="invalid">Password must be at least 5 characters</div>
+          }
+          @if (form.get('password')?.errors?.['invalidPassword'])
+          {
+            <div class="invalid">must contain at least 1 number,1capital&lowercase</div>
+          }
+        }
+      </div>
+      
+        
         <!-- Login  -->
         <div class="login-button">
           <button class="button" type="submit">Login</button>

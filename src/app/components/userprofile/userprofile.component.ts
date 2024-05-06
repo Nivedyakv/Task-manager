@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from '../../shared/userlogin/log.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -20,29 +20,42 @@ export class UserprofileComponent implements OnInit {
   isPassword: boolean = true;
   profilePicture: string | ArrayBuffer | null = null;
   showPasswordChange: boolean = false;
-  imageUrl: any;
+  imageUrl!: string;
   constructor(private formBuilder: FormBuilder, private loginService: LogService, private router: Router) { }
   ngOnInit(): void {
-    this.fetchUserProfile();
     this.profileForm = this.formBuilder.group({
       username: [''],
       email: ['', Validators.email],
       mob: [''],
-      oldPassword: [''],
-      newPassword: ['', Validators.minLength(5)],
-      confirmPassword: ['', Validators.minLength(5)]
+      oldPassword: ['', Validators.minLength(5)],
+      newPassword:  ['', [Validators.required, Validators.minLength(5), this.passwordValidator]],
+      confirmPassword: ['', Validators.minLength(5)],
+      proPic: ['']
     }, {
       validator: this.passwordMatchValidator
 
     });
     this.fetchUserProfile();
-  }
 
+  }
+  passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password: string = control.value;
+    
+    const hasNumber = /\d/.test(password);
+    const hasCapital = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+  
+    if (!hasNumber || !hasCapital || !hasLowercase) {
+      return { 'invalidPassword': true };
+    }
+    
+    return null;
+  }
 
   fetchUserProfile(): void {
     const username = sessionStorage.getItem('username');
     if (username) {
-      this.loginService.getUserData(username).subscribe((data: any[]) => {
+      this.loginService.getUserData(username).subscribe((data: any) => {
         if (data.length > 0) {
           this.userData = data[0];
           this.profileForm.patchValue({
@@ -50,7 +63,9 @@ export class UserprofileComponent implements OnInit {
             email: this.userData.email,
             mob: this.userData.mob,
             password: this.userData.password
+            
           });
+          this.imageUrl = this.userData.proPic
         }
       });
     }
@@ -70,13 +85,13 @@ export class UserprofileComponent implements OnInit {
           mob: this.profileForm.value['mob'],
           email: this.profileForm.value['email'],
           password: updatedPassword,
+          proPic: this.imageUrl,
         };
 
         const id = this.userData.id;
         this.loginService.updateUserData(id, updatedUserData).subscribe(
           (response) => {
             Swal.fire('Success', 'Profile updated successfully', 'success');
-
             // Update username in sessionStorage
             sessionStorage.setItem('username', updatedUserData.username);
             this.fetchUserProfile();
@@ -85,7 +100,6 @@ export class UserprofileComponent implements OnInit {
             Swal.fire('Error', 'Failed to update profile', 'error');
           }
         );
-
         this.router.navigateByUrl('/dashboard');
       } else {
         this.isPassword = false;
@@ -94,8 +108,6 @@ export class UserprofileComponent implements OnInit {
       this.profileForm.markAllAsTouched();
     }
   }
-
-
   passwordMatchValidator(group: FormGroup) {
     const newPassword = group.get('newPassword')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
@@ -111,5 +123,4 @@ export class UserprofileComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
-
 }

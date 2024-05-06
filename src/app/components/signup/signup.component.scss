@@ -1,29 +1,43 @@
 .signup-container {
-    margin-top: 50px; // Adjust margin top as needed
-  
-   
-    margin-left: auto;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/design.png');
+  background-size: cover; 
+  background-position: center;
+  width: 100%;
+}
+
+.card {
+  background-color: #ececec23;
+  width: 600px;
+  border: none;
+
+}
+
+.btn-primary {
+  background-color: #512da8;
+}
+
+.error-message {
+  color: red;
+}
+
+.head {
+  font-size: 24px;
+  color: #512da8;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 576px) {
   .card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Card effect
-    background-color: #ececec;
-    width: 500px;
-    margin: 0 auto; // This centers the card horizontally
-    
+    width: 90%;
   }
-  
-  
-  .btn-primary {
-    background-color:  #512da8; // Button color
-    
+  .signup-container {
+    background-color: #ffffff;
+    background-image: none;
   }
-  .error-message {
-    color: red; // Set error message color to red
-  }
-  .head {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #512da8; /* Title color */
-    text-align: center;
+
 }

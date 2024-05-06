@@ -1,13 +1,9 @@
 .main-dashboard {
     display: flex;
     flex-wrap: wrap 3 ;
-   
-   
-   
+    
 }
-
-  
-  button {
+ button {
     margin-top: 10px;
     background-color: #6f00ff;
     color: white;
@@ -35,7 +31,7 @@
   ol li,
   ul li {
     height: 200px;
-    background-color: #dfabff;
+    background-color: #f0dafe;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     margin-left: 10px;
@@ -116,6 +112,10 @@
       width: 100%; 
       margin-left: 0;
       margin-right: 0;
+    }
+    .main-dashboard{
+        display: flex;
+        flex-direction: column;
     }
   }
   

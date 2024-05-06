@@ -18,46 +18,55 @@
     flex-direction: column;
     height: 100vh;
     transition: background-color 0.5s;
-    // background-image: url(/assets/login.png);
+    background-image: url(/assets/login.png);
     background-repeat: no-repeat;
 }
 
 .login:hover {
-    background-color: #b88bfc; 
+    background-color: #e6d5ff; 
 }
-
+.error-message {
+    margin-top: 5px; 
+    color: red;
+  }
+  
+  .error-message  div {
+    margin-top: 5px;
+    color: red;
+  }
+  
 @media screen and (max-width: 768px) {
     .login {
         background-image: none;
         
     }
 }
-/* Container styles */
+
 .login-container {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     overflow: hidden;
     width: 400px;
-    max-width: 90%; /* Make the container responsive */
+    max-width: 90%; 
     min-height: 480px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    transition: box-shadow 0.3s; /* Smooth transition for box shadow */
+    transition: box-shadow 0.3s; 
 }
 
 .login-container:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
 }
 
-/* Head styles */
+
 .head {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #512da8; /* Title color */
+    color: #512da8; 
 }
 
 /* Form styles */
@@ -72,41 +81,50 @@
 .login-container h4 {
     margin-bottom: 20px;
     font-size: 20px;
-    color: #333; /* Text color */
+    color: #333; 
 }
 
-/* Input styles */
-.login-body {
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%;
-}
+
 
 .login-body input {
-    background-color: #f9f9f9; /* Input background color */
+    background-color: #f9f9f9;
     border: 2px solid transparent;
     border-radius: 8px;
     padding: 12px;
     width: 100%;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s; /* Smooth transition for border color */
+    transition: border-color 0.3s;
 }
 
 .login-body input:focus {
-    border-color: #512da8; /* Change border color on focus */
+    border-color: #512da8; 
 }
 
-/* Error message styles */
-.login-invalid {
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    font-size: 14px;
-    color: red;
-}
 
-/* Button styles */
+.login-body {
+    position: relative;
+  margin-bottom: 10px;
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .error-container {
+      position: relative;
+      margin-top: 5px;
+  
+      .invalid {
+        font-size: 10px;
+        color: red;
+      }
+    }
+  }
+  
+
 .login-button {
     margin-top: 20px;
 }
@@ -119,10 +137,10 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for button background color */
+    transition: background-color 0.3s;
 }
 
 .login-button button:hover {
-    background-color: #7e57c2; /* Change button background color on hover */
+    background-color: #000000;
 }
 

@@ -19,14 +19,14 @@ import { PiechartComponent } from '../piechart/piechart.component';
 export class DashboardComponent implements OnInit {
   tasks: Task[] = [];
   filteredTasks: Task[] = [];
-  selectedStatus: string = 'all'; // Default filter value
+  selectedStatus: string = 'all'; 
 isUpdateChart:boolean=false;
   constructor(private taskService: TaskmanagerService,private router: Router) { }
   
   ngOnInit(): void {
     this.getTasks(); 
   }
-  //
+  
   getTasks() {
     this.taskService.getTasks().subscribe((tasks) => {
       this.tasks = tasks;
@@ -62,7 +62,7 @@ isUpdateChart:boolean=false;
       const index = this.tasks.findIndex(t => t.id === updatedTask.id);
       if (index !== -1) {
         this.tasks[index] = updatedTask;
-        this.filterTasks(); // Reapply filtering
+        this.filterTasks(); 
       }
     });
   }

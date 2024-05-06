@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LogService } from '../../shared/userlogin/log.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -21,14 +21,29 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LogService
   ) { }
+  //initilization
 
   ngOnInit(): void {
     this.form = this.fb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required, Validators.minLength(5), this.passwordValidator]]
     });
   }
-
+  //for validation password
+  passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password: string = control.value;
+    
+    const hasNumber = /\d/.test(password);
+    const hasCapital = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+  
+    if (!hasNumber || !hasCapital || !hasLowercase) {
+      return { 'invalidPassword': true };
+    }
+    
+    return null;
+  }
+  //login function
   login(): void {
 
     if (this.form.valid) {
@@ -59,7 +74,7 @@ export class LoginComponent implements OnInit {
       );
     }
   }
-
+// roueter to signup
   Signup() {
     this.router.navigateByUrl('/signup');
   }

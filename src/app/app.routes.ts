@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { PiechartComponent } from './components/piechart/piechart.component';
-
 import { canActivateTeam } from './core/Guards/auth.guard';
 
 
@@ -39,4 +38,3 @@ export const routes: Routes = [
     {path:'piechart',component:PiechartComponent,canActivate:[canActivateTeam], }
 ];
 
-// canActivate:[authGuard]

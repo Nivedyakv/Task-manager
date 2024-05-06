@@ -1,11 +1,12 @@
+<div class="user-profile">
 <div class="container">
   <div class="card">
-    <h1 class="mb-4">Welcome to Profile Page</h1>
+    <h1 class="mb-4">Profile</h1>
     <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveChanges()">
       <div class="profile-picture-container">
-        <label for="profilePicture"><i class="fas fa-camera"></i> Uploade image</label>
+        <label for="profilePicture"> Uploade image</label>
         <input type="file" id="profilePicture" (change)="onFileSelected($event)" accept="image/*">
-        <img *ngIf="imageUrl" [src]="imageUrl" alt="Uploaded Image">
+        <img [src]="imageUrl" alt="Uploaded Image">
       </div>
       <div class="form-group">
         <label for="username">Username:</label>
@@ -27,7 +28,13 @@
       <div class="form-group" *ngIf="showPasswordChange">
         <label for="newPassword">New Password:</label>
         <input type="password" id="newPassword" class="form-control" formControlName="newPassword">
-      </div>
+        <div *ngIf="profileForm.get('newPassword')?.invalid && profileForm.get('newPassword')?.touched">
+            <div *ngIf="profileForm.get('newPassword')?.errors?.['required']" class="error-message">New Password is required</div>
+            <div *ngIf="profileForm.get('newPassword')?.errors?.['minlength']" class="error-message">New Password must be at least 5 characters long</div>
+            <div *ngIf="profileForm.get('newPassword')?.errors?.['invalidPassword']" class="error-message">New Password must contain at least one number, one capital letter, and one lowercase letter</div>
+        </div>
+    </div>
+    
       <div class="form-group" *ngIf="showPasswordChange">
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword">
@@ -37,4 +44,5 @@
       <button type="submit" class="btn btn-primary" *ngIf="!showPasswordChange">Save Changes</button>
     </form>
   </div>
+</div>
 </div>

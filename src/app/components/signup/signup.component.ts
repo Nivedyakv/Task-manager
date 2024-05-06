@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { LogService } from '../../shared/userlogin/log.service';
 import { CommonModule } from '@angular/common';
@@ -23,8 +23,22 @@ export class SignupComponent implements OnInit{
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mob: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(5)]]
+      password: ['', [Validators.required, Validators.minLength(5), this.passwordValidator]],
+      proPic: [''],
     });
+  }
+  passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const password: string = control.value;
+    
+    const hasNumber = /\d/.test(password);
+    const hasCapital = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+  
+    if (!hasNumber || !hasCapital || !hasLowercase) {
+      return { 'invalidPassword': true };
+    }
+    
+    return null;
   }
   // onsubmit
   onSubmit() {

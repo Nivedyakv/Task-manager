@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input,SimpleChanges } from '@angular/core';
 import { Chart ,registerables} from 'chart.js';
 import { TaskmanagerService } from '../../shared/Task/taskmanager.service';
-import { Router } from '@angular/router';
 Chart.register(...registerables);
 
 @Component({
@@ -36,9 +35,6 @@ export class PiechartComponent {
         });
 
         this.createPieChart(lowCount, medCount, highCount);
-      },
-      (error) => {
-        console.error('Error fetching tasks:', error);
       }
     ); 
   }

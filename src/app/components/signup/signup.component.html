@@ -1,6 +1,6 @@
 <div class="signup-container">
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-end">
       <div class="col-md-6">
         <div class="card">
           
@@ -32,14 +32,25 @@
                     }
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
-                    @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched)
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password" placeholder="password">
+                  @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched)
+                  {
+                    @if (signupForm.get('password')?.errors?.['required'])
                     {
-                        <div class="error-message">Password is required and must be at least 5 characters long</div>
+                      <div class="error-message">Password is required</div>
                     }
+                    @if (signupForm.get('password')?.errors?.['minlength'])
+                    {
+                      <div class="error-message">Password must be at least 5 characters long</div>
+                    }
+                    @if (signupForm.get('password')?.errors?.['invalidPassword'])
+                    {
+                      <div class="error-message">Password must contain at least one number, one capital letter, and one lowercase letter</div>
+                    }
+                  }
                 </div>
-                
+                     
               <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign Up</button>
             </form>
           </div>
