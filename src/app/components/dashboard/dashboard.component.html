@@ -26,6 +26,7 @@
   <li *ngFor="let task of filteredTasks">
     <input type="checkbox" [checked]="task.status === 'Completed'" (change)="toggleCompleted(task)">
     <span>{{ task.title }}</span>
+     <span>{{ task.dueDate }}</span>
     <button (click)="view(task.id)" class="view">View Details</button>
     <button (click)="deleteTask(task.id)">Delete</button>
   </li>
